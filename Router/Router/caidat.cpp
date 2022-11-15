@@ -10,10 +10,10 @@ void docmatran()
 	{
 		return;
 	}
-	fscanf_s(f, "%d", &sonut); //Đọc từng dòng file
-	for (int i = 0; i < sonut; i++)
+	fscanf_s(f, "%d", &soRouter); //Đọc từng dòng file
+	for (int i = 0; i < soRouter; i++)
 	{
-		for (int j = 0; j < sonut; j++)
+		for (int j = 0; j < soRouter; j++)
 			fscanf_s(f, "%d", &trongso[i][j]);
 	}
 	fclose(f);
@@ -23,9 +23,9 @@ void docmatran()
 void xemmatran()
 {
 	cout << "Ma Tran Mang May Tinh La: \n";
-	for (int i = 0; i < sonut; i++)
+	for (int i = 0; i < soRouter; i++)
 	{
-		for (int j = 0; j < sonut; j++)
+		for (int j = 0; j < soRouter; j++)
 			cout << trongso[i][j] << "\t";
 		cout << endl;
 	}
@@ -53,22 +53,22 @@ void router(int routerNguon, int routerDich, int* ngan, int duongdi[]) {
 	{
 		min = vocung;
 		//Duyệt các đỉnh cần xét trong đồ thị
-		for (int j = 0; j < soRouter; j++) 
+		for (int i = 0; i < soRouter; i++) 
 		{
 			//Kiểm tra các điều kiện về đường đi, khoảng cách, và đỉnh đó đã được xét hay chưa
-			if (trongso[routerTram][j] > 0 && kcbandau[j] > trongso[routerTram][j] + kcbandau[routerTram] && capnut[j] == FALSE) 
+			if (trongso[routerTram][i] > 0 && kcbandau[i] > trongso[routerTram][i] + kcbandau[routerTram] && capnut[i] == FALSE) 
 			{
-				//Cập nhật lại khoảng cách mới nếu khoảng cách mới bé hơn khoảng cách ban đầu và lưu lộ trình của đỉnh j.
-				kcbandau[j] = trongso[routerTram][j] + kcbandau[routerTram];
-				duongdi[j] = routerTram;
+				//Cập nhật lại khoảng cách mới nếu khoảng cách mới bé hơn khoảng cách ban đầu và lưu lộ trình của đỉnh i.
+				kcbandau[i] = trongso[routerTram][i] + kcbandau[routerTram];
+				duongdi[i] = routerTram;
 			}
 			//Duyệt lại các đỉnh để trả về giá trị sau khi cập nhật và đánh dấu đỉnh đó đã được xét
-			for (int j = 0; j < soRouter; j++) 
+			for (int i = 0; i < soRouter; i++) 
 			{
-				if (min > kcbandau[j] && capnut[j] == FALSE)
+				if (min > kcbandau[i] && capnut[i] == FALSE)
 				{
-					min = kcbandau[j];
-					routerTram = j;
+					min = kcbandau[i];
+					routerTram = i;
 				}
 				capnut[routerTram] = TRUE;
 			}
