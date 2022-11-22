@@ -62,7 +62,7 @@ void router(int routerNguon, int routerDich, int* ngan, int lotrinh[]) {
 				kcbandau[i] = trongso[routerTram][i] + kcbandau[routerTram];
 				lotrinh[i] = routerTram;
 			}
-			//Duyệt lại các đỉnh để trả về giá trị sau khi cập nhật và đánh dấu đỉnh đó đã được xét
+			//Duyệt lại các đỉnh để tìm đỉnh i sau cho kcbandau[i] là nhỏ nhất.
 			for (int i = 0; i < soRouter; i++) 
 			{
 				if (min > kcbandau[i] && capnut[i] == FALSE)
