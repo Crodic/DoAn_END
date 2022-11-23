@@ -50,7 +50,7 @@ void router(int routerNguon, int routerDich, int* ngan, int lotrinh[]) {
 	kcbandau[routerNguon] = 0;
 	routerTram = routerNguon;
 
-	while (capnut[routerDich != FALSE) 
+	while (capnut[routerDich] != FALSE) 
 	{
 		min = vocung;
 		//Duyệt các đỉnh trong đồ thị
