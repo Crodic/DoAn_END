@@ -50,14 +50,14 @@ void router(int routerNguon, int routerDich, int* ngan, int lotrinh[]) {
 	kcbandau[routerNguon] = 0;
 	routerTram = routerNguon;
 
-	while (capnut[routerDich] != FALSE) 
+	while (routerTram != routerDich) 
 	{
 		min = vocung;
 		//Duyệt các đỉnh trong đồ thị
 		for (int i = 0; i < soRouter; i++) 
 		{
 			//Kiểm tra các điều kiện về đường đi, khoảng cách, và đỉnh đó đã được đánh dấu hay chưa
-			if (trongso[routerTram][i] > 0 && kcbandau[i] > trongso[routerTram][i] + kcbandau[routerTram] && capnut[routerDich]==FALSE) 
+			if (trongso[routerTram][i] > 0 && kcbandau[i] > trongso[routerTram][i] + kcbandau[routerTram] && capnut[i]==FALSE) 
 			{
 				kcbandau[i] = trongso[routerTram][i] + kcbandau[routerTram];
 				lotrinh[i] = routerTram;
