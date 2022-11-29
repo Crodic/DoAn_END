@@ -96,38 +96,37 @@ void xemmatran()
 
 #pragma region Tìm Đường Đi Ngắn Nhất
 void router(int routerNguon, int routerDich, int* ngan, int lotrinh[]) {
-	int capnut[MAX]; //Đánh dấu điểm chưa xét
-	int kcbandau[MAX]; //Đánh dấu khoảng cách ban đầu
+	int danhdau[MAX];
+	int kcbandau[MAX];
 	int routerTram;
 	int min;
 
-	//Khởi tạo các nhãn tạm thời cho các đỉnh.
 	for (int i = 0; i < soRouter; i++) {
-		capnut[i] = FALSE; //Với toàn bộ đỉnh sẽ được đánh dấu là False
-		kcbandau[i] = vocung; //Và khởi cách lúc đầu của tất cả các đỉnh = vocung
+		danhdau[i] = FALSE;
+		kcbandau[i] = vocung;
 		lotrinh[i] = routerNguon;
 	}
 
-	capnut[routerNguon] = TRUE; //Khi người dùng nhập liệu vào thì Router nguồn sẽ được đánh dấu
-	kcbandau[routerNguon] = 0; //Cho khoảng cách từ router nguồn đến chính nó = 0
-	routerTram = routerNguon; //Gán router nguồn vào biến router Tram để tiến hành tìm đường đi ngắn nhất
+	danhdau[routerNguon] = TRUE;
+	kcbandau[routerNguon] = 0;
+	routerTram = routerNguon;
 
-	while (capnut[routerDich]==FALSE) // Bước lặp sẽ dừng khi router đích đã được đánh dấu = TRUE
+	while (danhdau[routerDich]==FALSE)
 	{
 		min = vocung;
-		//Duyệt các đỉnh trong đồ thị
+
 		for (int i = 0; i < soRouter; i++) 
 		{
-			// Tìm đỉnh i sau cho kcbandau[i] là nhỏ nhât
-			if (min > kcbandau[i] && capnut[i] == FALSE)
+
+			if (min > kcbandau[i] && danhdau[i] == FALSE)
 			{
-				min = kcbandau[i]; //Gán kcbandau[i] vào biến min
+				min = kcbandau[i];
 				routerTram = i;				
 			}
-			capnut[routerTram] = TRUE; //Router trạm là đỉnh có kcbandau là nhỏ nhất
+			danhdau[routerTram] = TRUE; 
 
-			//Kiểm tra các điều kiện về đường đi, khoảng cách, và đỉnh đó đã được đánh dấu hay chưa
-			if (trongso[routerTram][i] > 0 && kcbandau[i] > trongso[routerTram][i] + kcbandau[routerTram] && capnut[routerDich]==FALSE) 
+	
+			if (trongso[routerTram][i] > 0 && kcbandau[i] > trongso[routerTram][i] + kcbandau[routerTram] && danhdau[routerDich]==FALSE) 
 			{
 				kcbandau[i] = trongso[routerTram][i] + kcbandau[routerTram]; 
 				lotrinh[i] = routerTram;
