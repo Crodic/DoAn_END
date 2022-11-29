@@ -10,9 +10,9 @@ int main()
 	int soRouter;
 	do
 	{
-		cout << "\n1. Nhap, Xuat, Ghi Ma Tran Mang May Tinh";
-		cout << "\n2. Doc File Ma Tran";
-		cout << "\n3. Kiem Tra Duong Truyen Ngan Nhat Giua 2 Router";
+		cout << "\n1. Nhap va ghi Ma Tran Mang May Tinh Vao File.";
+		cout << "\n2. Doc va Xuat File Ma Tran.";
+		cout << "\n3. Kiem Tra Duong Truyen Ngan Nhat Giua 2 Router.";
 		cout << "\n0. Thoat";
 		cout << "\n Chon chuc nang ban can: ";
 		cin >> chon;
@@ -26,8 +26,10 @@ int main()
 			}
 			case 2: 
 			{
+				cout << "\nMa Tran Mang May Tinh la: "<< endl;
 				docmatran();
 				xemMaTran();
+				break;
 			}
 			case 3: 
 			{

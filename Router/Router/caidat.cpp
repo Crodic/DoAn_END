@@ -12,24 +12,24 @@ void init()
 }
 #pragma endregion
 
-#pragma region Nhập, Xuất, Xem Ma Trận
+#pragma region Nhập, Xuất Ma Trận
 void nhapMaTran() {
 	int x, y, time;
 	cout << "Mang May Tinh Co Bao Nhieu Router ?: ";
 	cin >> soRouter;
 	x = y = 0;
-	cout << "------ Nhap vao Router 1 va Router 2 >= " << soRouter << " de STOP !!!!!--------"<< endl;
+	cout << "------ Nhap Router x va Router y >= " << soRouter << " de STOP !!!!!--------"<< endl;
 	while (x < soRouter && y < soRouter)
 	{
-		cout << "Nhap Router 1: "; cin >> x;
-		cout << "Nhap Router 2: "; cin >> y;
+		cout << "Nhap Router x: "; cin >> x;
+		cout << "Nhap Router y: "; cin >> y;
 		if (x < soRouter && y < soRouter)
 		{
 			cout << "thoi gian truyen du lieu giua Router " << x << " va Router " << y <<" la: ";
 			cin >> time;
 			trongso[x][y] = time;
 			trongso[y][x] = time;
-			cout << "_________________________________________________________________________________" << endl;
+			cout << "___________________________________________________________________" << endl;
 		}
 	}
 }
@@ -84,7 +84,6 @@ void docmatran()
 #pragma region Xem Mạng Máy Tính
 void xemmatran()
 {
-	cout << "Ma Tran Mang May Tinh La: \n";
 	for (int i = 0; i < soRouter; i++)
 	{
 		for (int j = 0; j < soRouter; j++)
